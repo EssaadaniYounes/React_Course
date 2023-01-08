@@ -1,23 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+/*
+  Props :
+    What is props
+    why we use it
+    How we use it
+
+*/
+
+const MainHeader = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div>
+      <h1>My web site</h1>
+      <ul>
+        <li>Home</li>
+        <li>Contact</li>
+        <li>About us</li>
+      </ul>
+    </div>
+  )
+}
+
+const Article = (props) => {
+  
+  return (
+    <h1>{ props.title }</h1>
+  )
+}
+function App() {
+  const articleName = "Article 1";
+  return (
+    <div>
+      <MainHeader />
+      <Article title={articleName} />
+      <Article title="Article 2" />
+      <Article title="Article 3" />
+      <Article title="Article 4" />
     </div>
   );
 }
