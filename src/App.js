@@ -1,8 +1,7 @@
 import './App.css';
 
 /*
-  Props :
-    What is props
+  Render list :
     why we use it
     How we use it
 
@@ -22,21 +21,56 @@ const MainHeader = () => {
   )
 }
 
-const Article = (props) => {
-  
+const Article = ({ article }) => {
+  /*
+    props: {
+      article:{
+        id,
+        title,
+        description
+      }
+    }
+  */
   return (
-    <h1>{ props.title }</h1>
+    <>
+      <h1>{article.title}</h1>
+      <p>{article.description}</p>
+    </>
   )
 }
 function App() {
-  const articleName = "Article 1";
+  const articles = [
+    {
+      id: 1,
+      title: "Article 1",
+      description: "Lorem Ipsum",
+    },
+    {
+      id: 2,
+      title: "Article 2",
+      description: "Some random text",
+    },
+    {
+      id: 3,
+      title: "Article 3",
+      description: "Test",
+    },
+    {
+      id: 4,
+      title: "Article 4",
+      description: "Lorem Ipsum",
+    },
+  ]
   return (
     <div>
       <MainHeader />
-      <Article title={articleName} />
-      <Article title="Article 2" />
-      <Article title="Article 3" />
-      <Article title="Article 4" />
+      {
+        articles.map(article => {
+          return <Article key={article.id}
+            article={article}
+          />
+        })
+      }
     </div>
   );
 }
